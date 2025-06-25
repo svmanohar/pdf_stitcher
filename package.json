@@ -6,7 +6,21 @@
     "start": "ts-node src/index.ts",
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "npm run build && pkg dist/index.js -t node18-macos-x64,node18-linux-x64,node18-win-x64 -o dist/pdf-stitcher"
+  },
+  "bin": {
+    "pdf-stitcher": "./dist/index.js"
+  },
+  "pkg": {
+    "scripts": "dist/**/*.js",
+    "assets": "dist/**/*",
+    "targets": [
+      "node18-macos-x64",
+      "node18-linux-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +35,8 @@
     "sharp": "^0.34.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
 }
