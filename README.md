@@ -84,3 +84,47 @@ npm run build
 # Run compiled version
 node dist/index.js ./images -o output.pdf
 ```
+
+## Packaging
+
+The application can be packaged as a standalone executable:
+
+```bash
+# Install dependencies (including pkg)
+npm install
+
+# Create standalone executables for multiple platforms
+npm run package
+```
+
+This will create standalone executables in the `dist` directory for:
+- macOS (x64): `dist/pdf-stitcher-macos`
+- Linux (x64): `dist/pdf-stitcher-linux`
+- Windows (x64): `dist/pdf-stitcher-win.exe`
+
+### Shell Script Wrapper
+
+A shell script wrapper `pdf-stitcher.sh` is included for easier command-line usage:
+
+```bash
+# Make the script executable
+chmod +x pdf-stitcher.sh
+
+# Use the wrapper script
+./pdf-stitcher.sh ./images -o output.pdf
+```
+
+### Global Installation
+
+To install the tool globally on your system:
+
+```bash
+# Build the project first
+npm run build
+
+# Install globally
+npm install -g .
+
+# Now you can use it from anywhere
+pdf-stitcher ./images -o output.pdf
+```
