@@ -22,30 +22,35 @@ npm run build
 
 ### Basic Usage
 
-Convert all PNGs in a directory to PDF:
+Convert all PNGs in a directory to PDF (saves to same directory):
 ```bash
-npm start ./images -o output.pdf
+npm start -- ./images
+```
+
+Specify custom output location:
+```bash
+npm start -- ./images -o /path/to/output.pdf
 ```
 
 ### Interactive Mode
 
 Set orientation for each image interactively:
 ```bash
-npm start ./images -i -o output.pdf
+npm start -- ./images -i
 ```
 
 ### Rotate Specific Pages
 
 Rotate specific pages by page number:
 ```bash
-npm start ./images -r "1,3,5-7" -o output.pdf
+npm start -- ./images -r "1,3,5-7"
 ```
 
 This rotates pages 1, 3, 5, 6, and 7 by 90 degrees.
 
 ### Options
 
-- `-o, --output <path>`: Output PDF file path (default: output.pdf)
+- `-o, --output <path>`: Output PDF file path (default: saves to input directory as output.pdf)
 - `-i, --interactive`: Interactive mode to set orientation for each image
 - `-r, --rotate <pages>`: Rotate specific pages (e.g., "1,3,5-7")
 - `-v, --verbose`: Enable verbose logging
@@ -54,17 +59,17 @@ This rotates pages 1, 3, 5, 6, and 7 by 90 degrees.
 
 1. Convert all PNGs in current directory:
    ```bash
-   npm start . -o my-document.pdf
+   npm start -- .
    ```
 
-2. Convert with specific rotations:
+2. Convert with specific rotations and custom output:
    ```bash
-   npm start ./screenshots -r "2,4,6" -o rotated.pdf
+   npm start -- ./screenshots -r "2,4,6" -o ~/Desktop/rotated.pdf
    ```
 
 3. Interactive mode with verbose output:
    ```bash
-   npm start ./photos -i -v -o album.pdf
+   npm start -- ./photos -i -v
    ```
 
 ## Development
