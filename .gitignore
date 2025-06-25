@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.pdf
+.DS_Store
+*.log
+.env
+coverage/
+.vscode/
+.idea/
